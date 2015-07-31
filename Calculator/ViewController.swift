@@ -17,12 +17,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func buttonClicked(sender: UIButton) {
         currentExpression += sender.currentTitle!
         println(currentExpression)
@@ -36,6 +39,11 @@ class ViewController: UIViewController {
             currentNumber = ""
         }
         
+    }
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+        if motion == .MotionShake {
+            println("evaluate")
+        }
     }
 
 }
