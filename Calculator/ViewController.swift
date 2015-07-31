@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var currentExpression = ""
+    var currentNumber = ""
+    @IBOutlet weak var mainLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,7 +24,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonClicked(sender: UIButton) {
-        println("Button clicked: \(sender.currentTitle)")
+        currentExpression += sender.currentTitle!
+        println(currentExpression)
+        if NSNumberFormatter().numberFromString(sender.currentTitle!) != nil
+        {
+            currentNumber += sender.currentTitle!
+            mainLabel.text = currentNumber
+        }
+        else
+        {
+            currentNumber = ""
+        }
+        
     }
 
 }
