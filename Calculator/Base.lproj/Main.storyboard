@@ -151,10 +151,20 @@
                                     <constraint firstItem="Sdr-EJ-9hR" firstAttribute="width" secondItem="XXt-IQ-Ynn" secondAttribute="width" id="ya2-Hy-cga"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40v-9E-6T2">
+                                <rect key="frame" x="150" y="36" width="300" height="142"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="40v-9E-6T2" secondAttribute="centerX" id="0DA-L1-MSR"/>
+                            <constraint firstItem="h1s-TG-ccv" firstAttribute="top" secondItem="40v-9E-6T2" secondAttribute="bottom" constant="68" id="EHI-lP-H4N"/>
+                            <constraint firstItem="40v-9E-6T2" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="lEt-Zj-nVf"/>
                             <constraint firstAttribute="centerX" secondItem="h1s-TG-ccv" secondAttribute="centerX" id="vAh-LD-Ydz"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="h1s-TG-ccv" secondAttribute="bottom" constant="42" id="wsg-ye-HT0"/>
                         </constraints>
                     </view>
                 </viewController>
