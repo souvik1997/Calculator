@@ -65,6 +65,10 @@ class ViewController: UIViewController {
         func convert(num: String) -> Double?
         {
             var negativeFlag = false
+            if num == ""
+            {
+                return nil
+            }
             var str = num as NSString
             if str.substringWithRange(NSRange(location: 0, length: 1)) == "-"
             {
@@ -131,17 +135,24 @@ class ViewController: UIViewController {
             return nil
         }
         stack += [convertedNumber!]
-        if lastOperation != "" && stack.count < 2
+        if lastOperation != ""
         {
-            return nil
+            if stack.count < 2
+            {
+                return nil
+            }
+            var result = apply(lastOperation, stack[stack.count-2], stack[stack.count-1])
+            if result == nil
+            {
+                return nil
+            }
+            stack[stack.count-2] = result!
+            if stack.count != 2
+            {
+                return nil
+            }
         }
-        var result = apply(lastOperation, stack[stack.count-2], stack[stack.count-1])
-        if result == nil
-        {
-            return nil
-        }
-        stack[stack.count-2] = result!
-        if stack.count != 2
+        if stack.count == 0
         {
             return nil
         }
@@ -149,7 +160,19 @@ class ViewController: UIViewController {
     }
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
         if motion == .MotionShake {
-            println(evaluate(currentExpression))
+            var result = evaluate(currentExpression)
+            if result == nil
+            {
+                currentExpression = ""
+                currentNumber = ""
+                mainLabel.text = "Error"
+            }
+            else
+            {
+                currentExpression = ""
+                currentNumber = ""
+                mainLabel.text = "\(round(1E8*result!)/1E8)"
+            }
         }
     }
 
