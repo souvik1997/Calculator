@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     @IBAction func buttonClicked(sender: UIButton) {
         currentExpression += sender.currentTitle!
         println(currentExpression)
-        if NSNumberFormatter().numberFromString(sender.currentTitle!) != nil
+        if NSNumberFormatter().numberFromString(sender.currentTitle!) != nil || sender.currentTitle == "-" || sender.currentTitle == "."
         {
             currentNumber += sender.currentTitle!
             mainLabel.text = currentNumber
